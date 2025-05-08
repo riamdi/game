@@ -34,22 +34,23 @@
      </div>
     </div>
     <script>
-        let number = Math.floor(Math.random() * 17);
+        let number = Math.floor(Math.random() * 16) + 1;
         console.log(number)
         let elems = document.querySelectorAll('.card')
         let count = 5
         for(let elem of elems){
             elem.onclick = function(){
+                console.log(number)
                 count = count - 1
                 document.querySelector('.attempt_balance_num').textContent = `${count}`
                if (count === 0){
                 alert('КОНЕЦ ИГРЫ')
-                restart()
+                setTimeout(restart, 2000)  
                }else{
                 if (elem.classList.contains(`num${number}`)){
                 elem.style.background = 'green'
                 elem.textContent = 'YES'
-                alert('Ты выиграл, тебе поцелую')                
+                setTimeout(restart, 2000)              
                } else{
                 elem.style.background = 'tomato'
                 elem.textContent = 'NO'
@@ -59,12 +60,17 @@
         }
         function restart(){
             let elems = document.querySelectorAll('.card')
+            console.clear()
+            number = Math.floor(Math.random() * 16) + 1;
+            console.log(number)
             for(let elem of elems){
                 elem.style.background = 'rgb(114, 114, 255)'
                 elem.textContent = ''
                 count = 5
                 document.querySelector('.attempt_balance_num').textContent = `${count}`
             }
+            
+                
         }
         document.querySelector('.btn').addEventListener('click', restart)
     </script>
