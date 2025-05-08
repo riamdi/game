@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylr.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="game">
+        <div class="text">
+            <h1 class="title">Попробуй угадать где лежит приз?</h1>
+        <p class="attempt_balance">У тебя осталось <span class="attempt_balance_num">5</span> попыток</p>
+        </div>
+        <div class="cards">
+            <div class="card num1"></div>
+            <div class="card num2"></div>
+            <div class="card num3"></div>
+            <div class="card num4"></div>
+            <div class="card num5"></div>
+            <div class="card num6"></div>
+            <div class="card num7"></div>
+            <div class="card num8"></div>
+            <div class="card num9"></div>
+            <div class="card num10"></div>
+            <div class="card num11"></div>
+            <div class="card num12"></div>
+            <div class="card num13"></div>
+            <div class="card num14"></div>
+            <div class="card num15"></div>
+            <div class="card num16"></div>
+        </div>
+        <button class="btn">НАЧАТЬ ЗАНОВО</button>
+     </div>
+    </div>
+    <script>
+        let number = Math.floor(Math.random() * 17);
+        console.log(number)
+        let elems = document.querySelectorAll('.card')
+        let count = 5
+        for(let elem of elems){
+            elem.onclick = function(){
+                count = count - 1
+                document.querySelector('.attempt_balance_num').textContent = `${count}`
+               if (count === 0){
+                alert('КОНЕЦ ИГРЫ')
+                restart()
+               }else{
+                if (elem.classList.contains(`num${number}`)){
+                elem.style.background = 'green'
+                elem.textContent = 'YES'
+                alert('Ты выиграл, тебе поцелую')                
+               } else{
+                elem.style.background = 'tomato'
+                elem.textContent = 'NO'
+               }
+               }
+            }
+        }
+        function restart(){
+            let elems = document.querySelectorAll('.card')
+            for(let elem of elems){
+                elem.style.background = 'rgb(114, 114, 255)'
+                elem.textContent = ''
+                count = 5
+                document.querySelector('.attempt_balance_num').textContent = `${count}`
+            }
+        }
+        document.querySelector('.btn').addEventListener('click', restart)
+    </script>
+</body>
+</html>

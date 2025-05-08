@@ -1,0 +1,62 @@
+html {
+    box-sizing: border-box;
+    background-color: rgb(255, 255, 112);
+}
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+   
+.game {
+    margin: 0 auto;
+    padding: 20px;
+}
+.text {
+    text-align: center;
+}
+.title {
+    text-transform: uppercase;
+    font-size: 50px;
+    color: rgb(173, 0, 0);
+}
+
+.attempt_balance {
+    text-transform: uppercase;
+    font-size: 20px;
+    color: rgb(173, 0, 0);
+    
+}
+.attempt_balance_num {
+    font-weight: bold;
+}
+
+.cards {
+    margin: 0 auto;
+    padding: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 150px);
+    grid-template-rows: repeat(4, 150px);
+    gap: 5px;
+    justify-content: center;
+    
+}
+.card {
+    border: 2px solid blue;
+    margin: 0 auto;
+    width: 150px;
+    height: 150px;
+    background-color: rgb(114, 114, 255);
+    text-align: center;
+    padding-top:40px;
+    font-size: 50px;
+}
+.btn{
+    display: block;
+    margin: 0 auto;
+    margin-top: 50px;
+    width: 250px;
+    height: 100px;
+    background-color: rgb(83, 7, 155);
+    color: white;
+    border: none;
+    font-size: 20px;
+}
